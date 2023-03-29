@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags humanize %}
+
+{% block content %}
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'managers:availabledate_change_list' %}">Availabledate</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'managers:availabledate_change' availabledate.pk %}">{{ availabledate.name }}</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Results</li>
+    </ol>
+  </nav>
+  <h2 class="mb-3">{{ name }} Results</h2>
+
+  <div class="card">
+    <div class="card-header">
+      <strong>Taken Vaccination</strong>
+    </div>
+    
+  </div>
+{% endblock %}

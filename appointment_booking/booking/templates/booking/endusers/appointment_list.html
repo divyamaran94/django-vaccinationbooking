@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% include 'booking/endusers/_header.html' with active='new' %}
+  <div class="card">
+    <table class="table mb-0">
+      <thead>
+        <tr>
+          <th>Appointment</th>
+
+
+          <th>Dose</th>
+          <th>Vaccinetype</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for appointment in appointments %}
+          <tr>
+            <td class="align-middle">{{ appointment.name }}</td>
+
+            <td class="text-right">{{ appointment.dose_type }}</td>
+            
+            <td class="text-right">{{ appointment.vaccinetype }}</td>
+
+            <td class="text-right">{{ appointment.vaccinecenter }}</td>
+            <td class="text-right">{{ appointment.date_of_vaccine1 }}</td>
+            <td class="text-right">{{ appointment.availabledate }}</td>
+
+          </tr>
+        {% empty %}
+          <tr>
+            <td class="bg-light text-center font-italic" colspan="4">No appointments.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
