@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'managers:manager_home_view'%}">Manager Home</a></li>
+
+      <li class="breadcrumb-item active" aria-current="page">Vaccinecenter</li>
+    </ol>
+  </nav>
+  <h2 class="mb-3">Vaccinationcenters</h2>
+  <div class="card">
+    <table class="table mb-0">
+      <thead>
+        <tr>
+          <th>Vaccinecenter</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for vaccinecenter in vaccinecenters %}
+          <tr>
+            <td class="align-middle"><a href="{% url 'managers:vaccinetype_change' vaccinecenter.pk %}">{{ vaccinecenter.name }}</a></td>
+            
+            <td class="align-middle">{{ vaccinecenter.name }}</td>
+            <td class="text-right">
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td class="bg-light text-center font-italic" colspan="5">You haven't created any vaccinecenter yet.</td>
+          </tr>
+        {% endfor %}
+
+
+
+       
+
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

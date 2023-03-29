@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'endusers:appointment_change_list' appointment.pk %}">Appointments</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'endusers:appointment_change' appointment.pk %}">{{ appointment.name }}</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Confirm deletion</li>
+    </ol>
+  </nav>
+  <h2 class="mb-3">Confirm deletion</h2>
+  <p class="lead">Are you sure you want to delete the appointment <strong>"{{ appointment.name }}"</strong>?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger btn-lg">Yes, I'm sure</button>
+    <a href="{% url 'endusers:appointment_change' appointment.pk %}" class="btn btn-outline-secondary btn-lg" role="button">Cancel</a>
+  </form>
+{% endblock %}

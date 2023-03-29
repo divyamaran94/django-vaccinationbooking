@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Manager Home</li>
+    </ol>
+  </nav>
+
+  <a href="{% url 'managers:vaccinetype_add' %}" class="btn btn-primary mb-3" role="button">Add Vaccinetype</a>
+  <a href="{% url 'managers:vaccinecenter_add' %}" class="btn btn-primary mb-3" role="button">Add Vaccinecenter</a>
+
+  <a href="{% url 'managers:availabledate_add' %}" class="btn btn-primary mb-3" role="button">Add Availabledate</a>
+
+  <a href="{% url 'managers:vaccinetype_change_list' %}" class="btn btn-primary mb-3" role="button">View Vaccinetype</a>
+  <a href="{% url 'managers:vaccinecenter_change_list' %}" class="btn btn-primary mb-3" role="button">View Vaccinecenter</a>
+
+  <a href="{% url 'managers:availabledate_change_list' %}" class="btn btn-primary mb-3" role="button">View Availabledate</a>
+
+  <a href="{% url 'managers:appointment_change_list' %}" class="btn btn-primary mb-3" role="button">View Appointments</a>
+
+ 
+{% endblock %}
